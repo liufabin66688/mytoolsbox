@@ -144,7 +144,6 @@ PHP_MINFO_FUNCTION(say_hello)
 {
 	php_info_print_table_start();
 	php_info_print_table_header(2, "say_hello support", "enabled");
-    php_info_print_table_row(2, "author", "liufabin"); /* Replace with your name */
 	php_info_print_table_end();
 
 	/* Remove comments if you have entries in php.ini
