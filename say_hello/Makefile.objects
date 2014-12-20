@@ -1,0 +1,8 @@
+say_hello.lo: /usr/local/xzsoft/packages/php-5.4.3/ext/say_hello/say_hello.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/usr/local/xzsoft/packages/php-5.4.3/ext/say_hello $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /usr/local/xzsoft/packages/php-5.4.3/ext/say_hello/say_hello.c -o say_hello.lo 
+$(phplibdir)/say_hello.la: ./say_hello.la
+	$(LIBTOOL) --mode=install cp ./say_hello.la $(phplibdir)
+
+./say_hello.la: $(shared_objects_say_hello) $(SAY_HELLO_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_say_hello) $(SAY_HELLO_SHARED_LIBADD)
+
